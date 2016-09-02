@@ -16,7 +16,7 @@ import com.dongdao.a.info.MeetingInfo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MeetingListActivity extends Activity {
+public class MeetingListActivity extends Activity implements MeetingListAdapter.ClickHandle {
 
     private MeetingListAdapter meetingListAdapter;
     private List<MeetingInfo> meetingInfoList=new ArrayList<MeetingInfo>();
@@ -32,9 +32,16 @@ public class MeetingListActivity extends Activity {
     }
 
     private void initData() {
-        for (int i=0;i<=20;i++){
-            MeetingInfo meetingInfo=new MeetingInfo(i+1,"401",1,"国航项目111111111111111111111111111111111111111111111111111");
+        MeetingInfo meetingInfo;
+        for (int i=0;i<=10;i++){
+            if(i%2==0){
+                meetingInfo =new MeetingInfo(i+1,"401",1,"国航项目");
+            }else{
+                meetingInfo=new MeetingInfo(i+1,"402",0,"南航项目");
+
+            }
             meetingInfoList.add(meetingInfo);
+
         }
     }
 
@@ -44,7 +51,17 @@ public class MeetingListActivity extends Activity {
         textViewcenter= (TextView) this.findViewById(R.id.center);
         textViewcenter.setVisibility(View.GONE);
         listView= (ListView) this.findViewById(R.id.meeting_listview);
-        meetingListAdapter=new MeetingListAdapter(meetingInfoList,MeetingListActivity.this);
+        meetingListAdapter=new MeetingListAdapter(meetingInfoList,this,MeetingListActivity.this);
         listView.setAdapter(meetingListAdapter);
+    }
+
+    @Override
+    public void check(int position) {
+        Log.e("w","w");
+    }
+
+    @Override
+    public void book(int position) {
+        Log.e("ws","ws");
     }
 }
