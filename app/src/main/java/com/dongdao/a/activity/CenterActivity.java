@@ -1,11 +1,12 @@
 package com.dongdao.a.activity;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.dongdao.a.R;
 
-public class CenterActivity extends AppCompatActivity {
+public class CenterActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
