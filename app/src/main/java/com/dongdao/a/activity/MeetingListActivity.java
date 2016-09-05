@@ -35,13 +35,11 @@ public class MeetingListActivity extends Activity implements MeetingListAdapter.
         MeetingInfo meetingInfo;
         for (int i=0;i<=10;i++){
             if(i%2==0){
-                meetingInfo =new MeetingInfo(i+1,"401",1,"国航项目");
+                meetingInfo =new MeetingInfo(i,"401",1,"国航项目");
             }else{
-                meetingInfo=new MeetingInfo(i+1,"402",0,"南航项目");
-
+                meetingInfo=new MeetingInfo(i,"402",0,"南航项目");
             }
             meetingInfoList.add(meetingInfo);
-
         }
     }
 
@@ -50,6 +48,8 @@ public class MeetingListActivity extends Activity implements MeetingListAdapter.
         textViewback.setVisibility(View.GONE);
         textViewcenter= (TextView) this.findViewById(R.id.center);
         textViewcenter.setVisibility(View.GONE);
+        textViewtitle= (TextView) this.findViewById(R.id.title);
+        textViewtitle.setText("会议室列表");
         listView= (ListView) this.findViewById(R.id.meeting_listview);
         meetingListAdapter=new MeetingListAdapter(meetingInfoList,this,MeetingListActivity.this);
         listView.setAdapter(meetingListAdapter);
